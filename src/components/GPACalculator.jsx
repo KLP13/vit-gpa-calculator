@@ -104,35 +104,34 @@ export default function GPACalculator() {
           {/* Left Column: Calculator Inputs */}
           <div className="lg:col-span-2 space-y-6">
             
-            <div className="bg-white dark:bg-slate-900 rounded-2xl border border-slate-100 dark:border-slate-800 p-6 sm:p-8 shadow-sm">
+            <div className="bg-white dark:bg-slate-900 rounded-2xl border border-slate-100 dark:border-slate-800 p-4 sm:p-8 shadow-sm">
               {/* Labels header */}
-              <div className="hidden sm:grid sm:grid-cols-12 gap-4 mb-4 text-xs font-semibold text-slate-400 dark:text-slate-550 uppercase tracking-wider px-3">
-                <div className="col-span-1 text-center">#</div>
-                <div className="col-span-5">Credits</div>
-                <div className="col-span-5">Grade</div>
-                <div className="col-span-1"></div>
+              <div className="grid grid-cols-12 gap-2 sm:gap-4 mb-4 text-xs font-semibold text-slate-400 dark:text-slate-500 uppercase tracking-wider px-1 sm:px-3">
+                <div className="col-span-2 sm:col-span-1 text-center">#</div>
+                <div className="col-span-4 sm:col-span-5">Credits</div>
+                <div className="col-span-4 sm:col-span-5">Grade</div>
+                <div className="col-span-2 sm:col-span-1"></div>
               </div>
 
               {/* Rows List */}
-              <div className="space-y-4">
+              <div className="space-y-3 sm:space-y-4">
                 {courses.map((course, index) => (
-                  <div key={course.id} className="grid grid-cols-1 sm:grid-cols-12 gap-3 sm:gap-4 items-center bg-slate-50/50 dark:bg-slate-950/40 sm:bg-transparent p-4 sm:p-0 rounded-xl sm:rounded-none border sm:border-0 border-slate-100 dark:border-slate-800/80 relative group transition-colors">
+                  <div key={course.id} className="grid grid-cols-12 gap-2 sm:gap-4 items-center bg-transparent sm:bg-transparent p-0 sm:p-0 rounded-none sm:rounded-none border-0 sm:border-0 relative group transition-colors">
                     
                     {/* Index Counter */}
-                    <div className="col-span-1 flex items-center justify-center">
-                      <span className="w-8 h-8 rounded-full bg-slate-100 dark:bg-slate-800 text-slate-500 dark:text-slate-400 text-sm font-semibold flex items-center justify-center">
+                    <div className="col-span-2 sm:col-span-1 flex items-center justify-center">
+                      <span className="w-7 h-7 sm:w-8 sm:h-8 rounded-full bg-slate-100 dark:bg-slate-800 text-slate-500 dark:text-slate-400 text-xs sm:text-sm font-semibold flex items-center justify-center">
                         {index + 1}
                       </span>
                     </div>
 
                     {/* Credits Selection */}
-                    <div className="col-span-5">
-                      <label className="block sm:hidden text-xs font-semibold text-slate-400 dark:text-slate-500 mb-1">Credits</label>
+                    <div className="col-span-4 sm:col-span-5">
                       <select
                         value={course.credits}
                         onChange={(e) => handleCourseChange(course.id, 'credits', e.target.value)}
-                        className="w-full bg-white dark:bg-slate-950 border border-slate-200 dark:border-slate-800 rounded-xl px-4 py-3 text-slate-700 dark:text-slate-200 focus:outline-none focus:ring-2 focus:ring-indigo-500/20 focus:border-indigo-600 transition-all text-sm appearance-none cursor-pointer"
-                        style={{ backgroundImage: `url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='%2364748b' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'><polyline points='6 9 12 15 18 9'></polyline></svg>")`, backgroundPosition: 'right 16px center', backgroundSize: '16px', backgroundRepeat: 'no-repeat' }}
+                        className="w-full bg-white dark:bg-slate-950 border border-slate-200 dark:border-slate-800 rounded-xl px-2 sm:px-4 py-2 sm:py-3 text-slate-700 dark:text-slate-200 focus:outline-none focus:ring-2 focus:ring-indigo-500/20 focus:border-indigo-600 transition-all text-xs sm:text-sm appearance-none cursor-pointer"
+                        style={{ backgroundImage: `url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='%2364748b' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'><polyline points='6 9 12 15 18 9'></polyline></svg>")`, backgroundPosition: 'right 8px center', backgroundSize: '12px', backgroundRepeat: 'no-repeat' }}
                       >
                         <option value="" className="dark:bg-slate-950">Credits</option>
                         {creditsOptions.map(c => (
@@ -142,13 +141,12 @@ export default function GPACalculator() {
                     </div>
 
                     {/* Grade Selection */}
-                    <div className="col-span-5">
-                      <label className="block sm:hidden text-xs font-semibold text-slate-400 dark:text-slate-500 mb-1">Grade</label>
+                    <div className="col-span-4 sm:col-span-5">
                       <select
                         value={course.grade}
                         onChange={(e) => handleCourseChange(course.id, 'grade', e.target.value)}
-                        className="w-full bg-white dark:bg-slate-950 border border-slate-200 dark:border-slate-800 rounded-xl px-4 py-3 text-slate-700 dark:text-slate-200 focus:outline-none focus:ring-2 focus:ring-indigo-500/20 focus:border-indigo-600 transition-all text-sm appearance-none cursor-pointer"
-                        style={{ backgroundImage: `url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='%2364748b' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'><polyline points='6 9 12 15 18 9'></polyline></svg>")`, backgroundPosition: 'right 16px center', backgroundSize: '16px', backgroundRepeat: 'no-repeat' }}
+                        className="w-full bg-white dark:bg-slate-950 border border-slate-200 dark:border-slate-800 rounded-xl px-2 sm:px-4 py-2 sm:py-3 text-slate-700 dark:text-slate-200 focus:outline-none focus:ring-2 focus:ring-indigo-500/20 focus:border-indigo-600 transition-all text-xs sm:text-sm appearance-none cursor-pointer"
+                        style={{ backgroundImage: `url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='%2364748b' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'><polyline points='6 9 12 15 18 9'></polyline></svg>")`, backgroundPosition: 'right 8px center', backgroundSize: '12px', backgroundRepeat: 'no-repeat' }}
                       >
                         <option value="" className="dark:bg-slate-950">Grade</option>
                         {gradesOptions.map(g => (
@@ -158,7 +156,7 @@ export default function GPACalculator() {
                     </div>
 
                     {/* Remove Row Button */}
-                    <div className="col-span-1 flex items-center justify-end sm:justify-center">
+                    <div className="col-span-2 sm:col-span-1 flex items-center justify-center">
                       <button
                         onClick={() => handleRemoveCourse(course.id)}
                         className="p-2 text-slate-400 dark:text-slate-500 hover:text-red-500 dark:hover:text-red-400 rounded-lg hover:bg-red-50/50 dark:hover:bg-red-950/20 transition-colors"
@@ -248,7 +246,7 @@ export default function GPACalculator() {
                 VIT Grade Scale
               </h3>
               
-              <div className="flex flex-wrap gap-2.5 justify-between mb-4">
+              <div className="grid grid-cols-4 sm:flex sm:flex-wrap sm:justify-between gap-2.5 sm:gap-2 mb-4 justify-items-center">
                 <div className="flex flex-col items-center">
                   <span className="w-9 h-9 rounded-xl bg-emerald-500 text-white font-bold flex items-center justify-center shadow-md shadow-emerald-100 dark:shadow-none">S</span>
                   <span className="text-xs text-slate-500 mt-2 font-medium">10 pts</span>

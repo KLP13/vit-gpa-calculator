@@ -35,13 +35,13 @@ export default function GradeScale() {
               VIT Grade Scale Reference
             </h3>
             
-            <div className="flex flex-wrap gap-3.5 justify-center sm:justify-between">
+            <div className="flex flex-wrap gap-2.5 sm:gap-3.5 justify-center sm:justify-between">
               {gradeDetails.map((g) => (
-                <div key={g.grade} className="flex flex-col items-center shrink-0 w-20 bg-slate-50 dark:bg-slate-950 border border-slate-100/50 dark:border-slate-850 p-4 rounded-2xl hover:border-indigo-100 dark:hover:border-indigo-900 transition-colors">
-                  <span className={`w-10 h-10 rounded-2xl ${g.color} font-black text-lg flex items-center justify-center shadow-lg shadow-indigo-100/50 dark:shadow-none`}>
+                <div key={g.grade} className="flex flex-col items-center shrink-0 w-[72px] sm:w-20 bg-slate-50 dark:bg-slate-950 border border-slate-100/50 dark:border-slate-850 py-3 px-2 sm:p-4 rounded-2xl hover:border-indigo-100 dark:hover:border-indigo-900 transition-colors">
+                  <span className={`w-8 h-8 sm:w-10 sm:h-10 rounded-xl sm:rounded-2xl ${g.color} font-black text-sm sm:text-lg flex items-center justify-center shadow-lg shadow-indigo-100/50 dark:shadow-none`}>
                     {g.grade}
                   </span>
-                  <span className="text-sm font-bold text-slate-700 dark:text-slate-300 mt-3">{g.points} pts</span>
+                  <span className="text-xs sm:text-sm font-bold text-slate-700 dark:text-slate-300 mt-2 sm:mt-3">{g.points} pts</span>
                 </div>
               ))}
             </div>
