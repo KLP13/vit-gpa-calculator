@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Plus, Trash2, RefreshCw, Calculator, HelpCircle } from 'lucide-react';
-import { calculateGPA, getPerformanceLabel, GRADE_POINTS } from '../utils/calculator';
+import { calculateGPA, GRADE_POINTS } from '../utils/calculator';
 
 export default function GPACalculator() {
   // Initialize with 5 empty rows by default
@@ -221,26 +221,19 @@ export default function GPACalculator() {
                     </span>
                   </div>
 
-                  {/* Performance Label Badge */}
-                  <div className="text-center md:text-left md:col-span-2 space-y-3">
-                    <div>
-                      <span className="text-indigo-300 dark:text-slate-400 text-xs font-bold uppercase tracking-widest block mb-2">Performance Class</span>
-                      <span className={`inline-flex items-center px-4 py-1.5 rounded-full text-sm font-semibold border ${getPerformanceLabel(result.gpa).color}`}>
-                        {getPerformanceLabel(result.gpa).label}
-                      </span>
-                    </div>
-
-                    <div className="grid grid-cols-3 gap-4 text-xs sm:text-sm text-indigo-200 dark:text-slate-400 pt-2">
+                  {/* Stats columns */}
+                  <div className="text-center md:text-left md:col-span-2">
+                    <div className="grid grid-cols-3 gap-4 text-xs sm:text-sm text-indigo-200 dark:text-slate-400">
                       <div>
-                        <span className="text-indigo-400 dark:text-slate-500 block text-[10px] uppercase font-bold tracking-wider">Total Subjects</span>
+                        <span className="text-indigo-400 dark:text-slate-555 block text-[10px] uppercase font-bold tracking-wider">Total Subjects</span>
                         <span className="font-bold text-white text-base">{courses.filter(c => c.credits && c.grade).length}</span>
                       </div>
                       <div>
-                        <span className="text-indigo-400 dark:text-slate-500 block text-[10px] uppercase font-bold tracking-wider">Total Credits</span>
+                        <span className="text-indigo-400 dark:text-slate-555 block text-[10px] uppercase font-bold tracking-wider">Total Credits</span>
                         <span className="font-bold text-white text-base">{result.totalCredits}</span>
                       </div>
                       <div>
-                        <span className="text-indigo-400 dark:text-slate-500 block text-[10px] uppercase font-bold tracking-wider">Grade Points</span>
+                        <span className="text-indigo-400 dark:text-slate-555 block text-[10px] uppercase font-bold tracking-wider">Grade Points</span>
                         <span className="font-bold text-white text-base">{result.totalGradePoints}</span>
                       </div>
                     </div>

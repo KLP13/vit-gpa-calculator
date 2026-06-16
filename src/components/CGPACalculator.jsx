@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Plus, Trash2, RefreshCw, Calculator, Target, AlertCircle, CheckCircle2 } from 'lucide-react';
-import { calculateCGPA, predictTargetGPA, getPerformanceLabel } from '../utils/calculator';
+import { calculateCGPA, predictTargetGPA } from '../utils/calculator';
 
 export default function CGPACalculator() {
   // Semester Cards state (start with 2 by default, matching Screen 2)
@@ -265,15 +265,8 @@ export default function CGPACalculator() {
                     </span>
                   </div>
 
-                  <div className="text-center md:text-left md:col-span-2 space-y-3">
-                    <div>
-                      <span className="text-indigo-300 dark:text-slate-400 text-xs font-bold uppercase tracking-widest block mb-2">Academic Standing</span>
-                      <span className={`inline-flex items-center px-4 py-1.5 rounded-full text-sm font-semibold border ${getPerformanceLabel(cgpaResult.cgpa).color}`}>
-                        {getPerformanceLabel(cgpaResult.cgpa).label}
-                      </span>
-                    </div>
-
-                    <div className="grid grid-cols-2 gap-4 text-xs sm:text-sm text-indigo-200 dark:text-slate-400 pt-2">
+                  <div className="text-center md:text-left md:col-span-2">
+                    <div className="grid grid-cols-2 gap-4 text-xs sm:text-sm text-indigo-200 dark:text-slate-400">
                       <div>
                         <span className="text-indigo-400 dark:text-slate-550 block text-[10px] uppercase font-bold tracking-wider">Completed Semesters</span>
                         <span className="font-bold text-white text-base">{semesters.filter(s => s.gpa && s.credits).length}</span>
