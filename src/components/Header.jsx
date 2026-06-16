@@ -31,8 +31,12 @@ export default function Header({ darkMode, toggleDarkMode }) {
   };
 
   return (
-    <header className={`fixed top-0 left-0 w-full z-40 transition-all duration-300 ${scrolled ? 'bg-white/95 dark:bg-slate-900/95 shadow-md shadow-slate-100/50 dark:shadow-none dark:border-b dark:border-slate-800 backdrop-blur-md py-3' : 'bg-transparent py-5'}`}>
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <header className={`fixed top-0 left-0 w-full z-40 transition-all duration-300 ${scrolled ? 'shadow-md shadow-slate-100/50 dark:shadow-none py-3' : 'bg-transparent py-5'}`}>
+      {/* Background layer with blur - separated to avoid creating a containing block for fixed position mobile drawer */}
+      {scrolled && (
+        <div className="absolute inset-0 bg-white/95 dark:bg-slate-900/95 backdrop-blur-md dark:border-b dark:border-slate-800 -z-10" />
+      )}
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
         <div className="flex justify-between items-center">
           {/* Logo */}
           <a href="#" className="flex items-center gap-2 group">
