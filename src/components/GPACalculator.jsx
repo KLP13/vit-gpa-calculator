@@ -240,44 +240,6 @@ export default function GPACalculator() {
           {/* Right Column: References */}
           <div className="space-y-6">
             
-            {/* VIT Grade Scale Card */}
-            <div className="bg-white dark:bg-slate-900 rounded-2xl border border-slate-100 dark:border-slate-800 p-6 shadow-sm">
-              <h3 className="font-display font-bold text-lg text-slate-900 dark:text-white mb-6 flex items-center gap-2">
-                VIT Grade Scale
-              </h3>
-              
-              <div className="grid grid-cols-4 sm:flex sm:flex-wrap sm:justify-between gap-2.5 sm:gap-2 mb-4 justify-items-center">
-                <div className="flex flex-col items-center">
-                  <span className="w-9 h-9 rounded-xl bg-emerald-500 text-white font-bold flex items-center justify-center shadow-md shadow-emerald-100 dark:shadow-none">S</span>
-                  <span className="text-xs text-slate-500 mt-2 font-medium">10 pts</span>
-                </div>
-                <div className="flex flex-col items-center">
-                  <span className="w-9 h-9 rounded-xl bg-teal-500 text-white font-bold flex items-center justify-center shadow-md shadow-teal-100 dark:shadow-none">A</span>
-                  <span className="text-xs text-slate-500 mt-2 font-medium">9 pts</span>
-                </div>
-                <div className="flex flex-col items-center">
-                  <span className="w-9 h-9 rounded-xl bg-blue-500 text-white font-bold flex items-center justify-center shadow-md shadow-blue-100 dark:shadow-none">B</span>
-                  <span className="text-xs text-slate-500 mt-2 font-medium">8 pts</span>
-                </div>
-                <div className="flex flex-col items-center">
-                  <span className="w-9 h-9 rounded-xl bg-violet-400 text-white font-bold flex items-center justify-center shadow-md shadow-violet-100 dark:shadow-none">C</span>
-                  <span className="text-xs text-slate-500 mt-2 font-medium">7 pts</span>
-                </div>
-                <div className="flex flex-col items-center">
-                  <span className="w-9 h-9 rounded-xl bg-amber-500 text-white font-bold flex items-center justify-center shadow-md shadow-amber-100 dark:shadow-none">D</span>
-                  <span className="text-xs text-slate-500 mt-2 font-medium">6 pts</span>
-                </div>
-                <div className="flex flex-col items-center">
-                  <span className="w-9 h-9 rounded-xl bg-orange-500 text-white font-bold flex items-center justify-center shadow-md shadow-orange-100 dark:shadow-none">E</span>
-                  <span className="text-xs text-slate-500 mt-2 font-medium">5 pts</span>
-                </div>
-                <div className="flex flex-col items-center">
-                  <span className="w-9 h-9 rounded-xl bg-red-500 text-white font-bold flex items-center justify-center shadow-md shadow-red-100 dark:shadow-none">F</span>
-                  <span className="text-xs text-slate-500 mt-2 font-medium">0 pts</span>
-                </div>
-              </div>
-            </div>
-
             {/* How It Works Card */}
             <div className="bg-white dark:bg-slate-900 rounded-2xl border border-slate-100 dark:border-slate-800 p-6 shadow-sm">
               <h3 className="font-display font-bold text-lg text-slate-900 dark:text-white mb-6">
