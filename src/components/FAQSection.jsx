@@ -53,19 +53,19 @@ export default function FAQSection() {
   };
 
   return (
-    <section id="faq-section" className="py-20 bg-slate-50/50 scroll-mt-20">
+    <section id="faq-section" className="py-20 bg-slate-50/50 dark:bg-slate-950/20 scroll-mt-20 transition-colors duration-300">
       <div className="max-w-4xl mx-auto px-4 sm:px-6">
         
         {/* Header */}
         <div className="text-center mb-16">
-          <span className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-semibold bg-indigo-50 text-indigo-700 border border-indigo-100 mb-4">
+          <span className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-semibold bg-indigo-50 dark:bg-indigo-950/40 text-indigo-700 dark:text-indigo-300 border border-indigo-100 dark:border-indigo-900/60 mb-4">
             <HelpCircle className="w-3.5 h-3.5" />
             Frequently Asked Questions
           </span>
-          <h2 className="text-4xl font-extrabold text-slate-900 sm:text-5xl tracking-tight mb-4">
+          <h2 className="text-4xl font-extrabold text-slate-900 dark:text-white sm:text-5xl tracking-tight mb-4">
             FAQ & Student Help
           </h2>
-          <p className="text-lg text-slate-500 max-w-xl mx-auto">
+          <p className="text-lg text-slate-500 dark:text-slate-400 max-w-xl mx-auto">
             Quick, official details about the Vellore Institute of Technology grading rules and expectations.
           </p>
         </div>
@@ -77,22 +77,22 @@ export default function FAQSection() {
             return (
               <div 
                 key={index} 
-                className="bg-white border border-slate-100 rounded-2xl overflow-hidden shadow-sm hover:border-indigo-100/50 transition-colors"
+                className="bg-white dark:bg-slate-900 border border-slate-100 dark:border-slate-800 rounded-2xl overflow-hidden shadow-sm hover:border-indigo-100/50 dark:hover:border-indigo-900 transition-colors"
               >
                 {/* Header Button */}
                 <button
                   onClick={() => handleToggle(index)}
-                  className="w-full flex justify-between items-center px-6 py-5 text-left font-display font-extrabold text-slate-900 text-sm sm:text-base hover:text-indigo-600 transition-colors cursor-pointer select-none"
+                  className="w-full flex justify-between items-center px-6 py-5 text-left font-display font-extrabold text-slate-900 dark:text-slate-200 text-sm sm:text-base hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors cursor-pointer select-none"
                 >
                   <span>{faq.q}</span>
-                  <ChevronDown className={`w-5 h-5 text-slate-400 transition-transform duration-300 ${isOpen ? 'rotate-180 text-indigo-500' : ''}`} />
+                  <ChevronDown className={`w-5 h-5 text-slate-400 dark:text-slate-550 transition-transform duration-300 ${isOpen ? 'rotate-180 text-indigo-500 dark:text-indigo-400' : ''}`} />
                 </button>
 
                 {/* Answer Content */}
                 <div 
-                  className={`transition-all duration-300 ease-in-out overflow-hidden ${isOpen ? 'max-h-96 border-t border-slate-50' : 'max-h-0'}`}
+                  className={`transition-all duration-300 ease-in-out overflow-hidden ${isOpen ? 'max-h-96 border-t border-slate-50 dark:border-slate-850' : 'max-h-0'}`}
                 >
-                  <p className="px-6 py-5 text-sm sm:text-base text-slate-500 leading-relaxed font-normal text-justify">
+                  <p className="px-6 py-5 text-sm sm:text-base text-slate-500 dark:text-slate-400 leading-relaxed font-normal text-justify">
                     {faq.a}
                   </p>
                 </div>
