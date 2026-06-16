@@ -223,7 +223,7 @@ export default function GPACalculator() {
 
                   {/* Stats columns */}
                   <div className="text-center md:text-left md:col-span-2">
-                    <div className="grid grid-cols-3 gap-4 text-xs sm:text-sm text-indigo-200 dark:text-slate-400">
+                    <div className="grid grid-cols-2 gap-4 text-xs sm:text-sm text-indigo-200 dark:text-slate-400">
                       <div>
                         <span className="text-indigo-400 dark:text-slate-555 block text-[10px] uppercase font-bold tracking-wider">Total Subjects</span>
                         <span className="font-bold text-white text-base">{courses.filter(c => c.credits && c.grade).length}</span>
@@ -231,10 +231,6 @@ export default function GPACalculator() {
                       <div>
                         <span className="text-indigo-400 dark:text-slate-555 block text-[10px] uppercase font-bold tracking-wider">Total Credits</span>
                         <span className="font-bold text-white text-base">{result.totalCredits}</span>
-                      </div>
-                      <div>
-                        <span className="text-indigo-400 dark:text-slate-555 block text-[10px] uppercase font-bold tracking-wider">Grade Points</span>
-                        <span className="font-bold text-white text-base">{result.totalGradePoints}</span>
                       </div>
                     </div>
                   </div>
