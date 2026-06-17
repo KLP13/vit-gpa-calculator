@@ -5,8 +5,8 @@ import { calculateCGPA, predictTargetGPA } from '../utils/calculator';
 export default function CGPACalculator() {
   // Semester Cards state (start with 2 by default, matching Screen 2)
   const [semesters, setSemesters] = useState([
-    { id: 1, name: 'Semester 1', gpa: '', credits: '22' },
-    { id: 2, name: 'Semester 2', gpa: '', credits: '22' }
+    { id: 1, name: 'Semester 1', gpa: '', credits: '' },
+    { id: 2, name: 'Semester 2', gpa: '', credits: '' }
   ]);
 
   const [cgpaResult, setCgpaResult] = useState(null);
@@ -18,7 +18,7 @@ export default function CGPACalculator() {
     creditsCompleted: '',
     targetCGPA: 8.0,
     remainingSemesters: '2',
-    creditsPerSemester: '22'
+    creditsPerSemester: ''
   });
 
   const [predictorResult, setPredictorResult] = useState(null);
@@ -52,7 +52,7 @@ export default function CGPACalculator() {
     const nextNum = semesters.length + 1;
     setSemesters([
       ...semesters,
-      { id: Date.now(), name: `Semester ${nextNum}`, gpa: '', credits: '22' }
+      { id: Date.now(), name: `Semester ${nextNum}`, gpa: '', credits: '' }
     ]);
   };
 
@@ -100,8 +100,8 @@ export default function CGPACalculator() {
 
   const handleResetCGPA = () => {
     setSemesters([
-      { id: 1, name: 'Semester 1', gpa: '', credits: '22' },
-      { id: 2, name: 'Semester 2', gpa: '', credits: '22' }
+      { id: 1, name: 'Semester 1', gpa: '', credits: '' },
+      { id: 2, name: 'Semester 2', gpa: '', credits: '' }
     ]);
     setCgpaResult(null);
     setCalcError('');
