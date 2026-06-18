@@ -2,9 +2,97 @@
 
 @custom-variant dark (&:where(.dark, .dark *));
 
+:root {
+  /* Light mode standard slate colors */
+  --slate-50: #f8fafc;
+  --slate-100: #f1f5f9;
+  --slate-200: #e2e8f0;
+  --slate-300: #cbd5e1;
+  --slate-400: #94a3b8;
+  --slate-500: #64748b;
+  --slate-600: #475569;
+  --slate-700: #334155;
+  --slate-800: #1e293b;
+  --slate-850: #161e2e;
+  --slate-900: #0f172a;
+  --slate-950: #020617;
+  --slate-555: #64748b;
+
+  /* Light mode Supabase-inspired green colors mapping to indigo */
+  --indigo-50: #ecfdf5;
+  --indigo-100: #d1fae5;
+  --indigo-200: #a7f3d0;
+  --indigo-300: #6ee7b7;
+  --indigo-400: #34d399;
+  --indigo-500: #10b981;
+  --indigo-600: #059669;
+  --indigo-700: #047857;
+  --indigo-800: #065f46;
+  --indigo-850: #064e3b;
+  --indigo-900: #064e3b;
+  --indigo-950: #022c22;
+}
+
+.dark {
+  /* Dark mode Supabase theme color mappings (preserving light-to-dark numeric order) */
+  --slate-50: #ffffff;
+  --slate-100: #ededed;
+  --slate-200: #cbd5e1;
+  --slate-300: #a3a3a3;
+  --slate-400: #8a8a8a;
+  --slate-555: #737373;     /* backup gray variable */
+  --slate-500: #737373;
+  --slate-600: #404040;
+  --slate-700: #2a2a2a;
+  --slate-800: #1f1f1f;     /* borders */
+  --slate-850: #171717;     /* inputs bg */
+  --slate-900: #111111;     /* cards bg */
+  --slate-950: #090909;     /* body bg */
+
+  --indigo-50: #1a4731;
+  --indigo-100: rgba(62, 207, 142, 0.15);
+  --indigo-200: rgba(62, 207, 142, 0.25);
+  --indigo-300: #3ecf8e;
+  --indigo-400: #3ecf8e;
+  --indigo-500: #24b47e;
+  --indigo-600: #24b47e;    /* Supabase signature green */
+  --indigo-700: #1c9d6c;    /* Hover green */
+  --indigo-800: #1a4731;
+  --indigo-850: #0d1f17;
+  --indigo-900: #0d1f17;
+  --indigo-950: #0a1a12;
+}
+
 @theme {
-  --font-sans: 'Inter', sans-serif;
-  --font-display: 'Outfit', sans-serif;
+  --font-sans: 'Geist', 'Geist Sans', 'Geist Variable', 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --font-display: 'Geist', 'Geist Sans', 'Geist Variable', 'Outfit', sans-serif;
+  
+  --color-slate-50: var(--slate-50);
+  --color-slate-100: var(--slate-100);
+  --color-slate-200: var(--slate-200);
+  --color-slate-300: var(--slate-300);
+  --color-slate-400: var(--slate-400);
+  --color-slate-500: var(--slate-500);
+  --color-slate-555: var(--slate-555);
+  --color-slate-600: var(--slate-600);
+  --color-slate-700: var(--slate-700);
+  --color-slate-800: var(--slate-800);
+  --color-slate-850: var(--slate-850);
+  --color-slate-900: var(--slate-900);
+  --color-slate-950: var(--slate-950);
+
+  --color-indigo-50: var(--indigo-50);
+  --color-indigo-100: var(--indigo-100);
+  --color-indigo-200: var(--indigo-200);
+  --color-indigo-300: var(--indigo-300);
+  --color-indigo-400: var(--indigo-400);
+  --color-indigo-500: var(--indigo-500);
+  --color-indigo-600: var(--indigo-600);
+  --color-indigo-700: var(--indigo-700);
+  --color-indigo-800: var(--indigo-800);
+  --color-indigo-850: var(--indigo-850);
+  --color-indigo-900: var(--indigo-900);
+  --color-indigo-950: var(--indigo-950);
 }
 
 @layer base {
@@ -14,32 +102,51 @@
   }
 
   body {
-    @apply bg-slate-50/50 text-slate-800 font-sans dark:bg-slate-950 dark:text-slate-100;
+    background-color: var(--slate-950);
+    color: var(--slate-700);
+    font-family: var(--font-sans);
+    transition: background-color 0.2s, border-color 0.2s, color 0.2s;
+  }
+
+  .dark body {
+    color: var(--slate-200);
   }
 
   h1, h2, h3, h4, h5, h6 {
-    @apply font-display text-slate-900 tracking-tight dark:text-white;
+    font-family: var(--font-display);
+    font-weight: 700;
+    letter-spacing: -0.025em;
   }
 }
 
+/* Custom Select Dropdown Styling */
+select option {
+  background-color: var(--slate-50);
+  color: var(--slate-900);
+}
+
+.dark select option {
+  background-color: var(--slate-850);
+  color: var(--slate-100);
+}
+
+
 /* Glassmorphic utilities */
 .glass {
-  background: rgba(255, 255, 255, 0.75);
+  background: rgba(15, 23, 42, 0.85); /* Indigo dark tone */
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
 }
-
-/* Smooth transitions */
-.transition-all-300 {
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+:root:not(.dark) .glass {
+  background: rgba(255, 255, 255, 0.85);
 }
 
-/* Custom form scrollbar or range slider styling if needed */
+/* Custom range slider styling */
 input[type="range"] {
-  @apply accent-indigo-600;
+  accent-color: var(--indigo-600);
 }
 
-/* Custom fade in animation utility */
+/* Animation utilities */
 @keyframes fadeIn {
   from {
     opacity: 0;

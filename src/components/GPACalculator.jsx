@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Plus, Trash2, RefreshCw, Calculator, HelpCircle } from 'lucide-react';
 import { calculateGPA, GRADE_POINTS } from '../utils/calculator';
+import CustomSelect from './CustomSelect';
 
 export default function GPACalculator() {
   // Initialize with 5 empty rows by default
@@ -81,6 +82,9 @@ export default function GPACalculator() {
   const creditsOptions = [1, 1.5, 2, 3, 4, 5];
   const gradesOptions = Object.keys(GRADE_POINTS);
 
+  const creditsSelectOptions = creditsOptions.map(c => ({ value: c, label: `${c} Credits` }));
+  const gradesSelectOptions = gradesOptions.map(g => ({ value: g, label: `${g} Grade` }));
+
   return (
     <section id="gpa-section" className="py-20 bg-slate-50/50 dark:bg-slate-950/20 scroll-mt-20 transition-colors duration-300">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -127,32 +131,24 @@ export default function GPACalculator() {
 
                     {/* Credits Selection */}
                     <div className="col-span-4 sm:col-span-5">
-                      <select
+                      <CustomSelect
                         value={course.credits}
                         onChange={(e) => handleCourseChange(course.id, 'credits', e.target.value)}
-                        className="w-full bg-white dark:bg-slate-950 border border-slate-200 dark:border-slate-800 rounded-xl px-2 sm:px-4 py-2 sm:py-3 text-slate-700 dark:text-slate-200 focus:outline-none focus:ring-2 focus:ring-indigo-500/20 focus:border-indigo-600 transition-all text-xs sm:text-sm appearance-none cursor-pointer"
-                        style={{ backgroundImage: `url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='%2364748b' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'><polyline points='6 9 12 15 18 9'></polyline></svg>")`, backgroundPosition: 'right 8px center', backgroundSize: '12px', backgroundRepeat: 'no-repeat' }}
-                      >
-                        <option value="" className="dark:bg-slate-950">Credits</option>
-                        {creditsOptions.map(c => (
-                          <option key={c} value={c} className="dark:bg-slate-950">{c} Credits</option>
-                        ))}
-                      </select>
+                        options={creditsSelectOptions}
+                        placeholder="Credits"
+                        className="px-2 sm:px-4 py-2.5 sm:py-3 text-xs sm:text-sm"
+                      />
                     </div>
 
                     {/* Grade Selection */}
                     <div className="col-span-4 sm:col-span-5">
-                      <select
+                      <CustomSelect
                         value={course.grade}
                         onChange={(e) => handleCourseChange(course.id, 'grade', e.target.value)}
-                        className="w-full bg-white dark:bg-slate-950 border border-slate-200 dark:border-slate-800 rounded-xl px-2 sm:px-4 py-2 sm:py-3 text-slate-700 dark:text-slate-200 focus:outline-none focus:ring-2 focus:ring-indigo-500/20 focus:border-indigo-600 transition-all text-xs sm:text-sm appearance-none cursor-pointer"
-                        style={{ backgroundImage: `url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='%2364748b' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'><polyline points='6 9 12 15 18 9'></polyline></svg>")`, backgroundPosition: 'right 8px center', backgroundSize: '12px', backgroundRepeat: 'no-repeat' }}
-                      >
-                        <option value="" className="dark:bg-slate-950">Grade</option>
-                        {gradesOptions.map(g => (
-                          <option key={g} value={g} className="dark:bg-slate-950">{g} Grade</option>
-                        ))}
-                      </select>
+                        options={gradesSelectOptions}
+                        placeholder="Grade"
+                        className="px-2 sm:px-4 py-2.5 sm:py-3 text-xs sm:text-sm"
+                      />
                     </div>
 
                     {/* Remove Row Button */}

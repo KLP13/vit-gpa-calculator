@@ -55,38 +55,39 @@ export default function App() {
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-8 relative">
             
             {/* Soft Badge */}
-            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-indigo-50 dark:bg-indigo-950/40 border border-indigo-100 dark:border-indigo-900/60 text-indigo-700 dark:text-indigo-300 font-semibold text-xs sm:text-sm shadow-sm hover:shadow transition-shadow">
-              <Sparkles className="w-4 h-4 text-indigo-500 fill-indigo-100 dark:fill-indigo-950 animate-spin-slow" />
+            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full text-xs font-semibold bg-indigo-50 dark:bg-indigo-950/30 text-indigo-700 dark:text-indigo-300 border border-indigo-100 dark:border-indigo-900/50 shadow-sm mx-auto">
+              <Sparkles className="w-3.5 h-3.5 text-indigo-600 dark:text-indigo-400 fill-indigo-100/30 dark:fill-indigo-950/10" />
               <span>For VIT students · No login required</span>
             </div>
 
             {/* Headline */}
-            <div className="space-y-4 max-w-4xl mx-auto">
-              <h1 className="text-5xl sm:text-6xl md:text-7.5xl font-black text-slate-900 dark:text-white leading-tight tracking-tight font-display">
-                Calculate Your <span className="text-transparent bg-clip-text bg-gradient-to-r from-indigo-600 to-indigo-500 dark:from-indigo-400 dark:to-indigo-500">VIT GPA</span> <br className="hidden sm:inline" /> in Seconds
+            <div className="space-y-6 max-w-4xl mx-auto">
+              <h1 className="text-5xl sm:text-6xl md:text-[68px] font-bold text-slate-900 dark:text-white leading-[1.08] tracking-tight">
+                Your GPA,<br />
+                <span className="text-indigo-600 dark:text-indigo-400">calculated right.</span>
               </h1>
-              <p className="text-base sm:text-lg md:text-xl text-slate-500 dark:text-slate-400 max-w-2xl mx-auto font-normal leading-relaxed">
-                The most accurate GPA & CGPA calculator built specifically for VIT's grading system. Works for all campuses — Vellore, Chennai, Bhopal, and AP.
+              <p className="text-sm sm:text-base md:text-lg text-slate-500 dark:text-slate-400 max-w-xl mx-auto font-normal leading-relaxed opacity-75">
+                The only GPA & CGPA calculator built specifically for VIT's grading system. Semester GPA, cumulative CGPA, target predictor — all in one place.
               </p>
             </div>
 
             {/* Action Buttons */}
-            <div className="flex flex-col sm:flex-row gap-4 justify-center items-center max-w-md mx-auto pt-4">
+            <div className="flex flex-col sm:flex-row gap-3 justify-center items-center pt-4">
               <a
                 href="#gpa-section"
                 onClick={(e) => handleScrollTo(e, '#gpa-section')}
-                className="w-full sm:w-auto flex items-center justify-center gap-2 px-8 py-4 bg-indigo-600 hover:bg-indigo-700 text-white font-bold rounded-2xl shadow-lg shadow-indigo-200 hover:shadow-indigo-300 dark:shadow-none hover:-translate-y-0.5 transition-all text-base cursor-pointer"
+                className="w-full sm:w-auto flex items-center justify-center gap-2 px-5 py-2.5 bg-[#24b47e] hover:bg-[#1c9d6c] text-white font-medium rounded-lg transition-all text-sm cursor-pointer shadow-sm hover:scale-[1.01]"
               >
-                <Calculator className="w-5 h-5" />
+                <Calculator className="w-4 h-4 text-white stroke-[2]" />
                 Calculate GPA
               </a>
 
               <a
                 href="#cgpa-section"
                 onClick={(e) => handleScrollTo(e, '#cgpa-section')}
-                className="w-full sm:w-auto flex items-center justify-center gap-2 px-8 py-4 bg-white dark:bg-slate-900 hover:bg-slate-50 dark:hover:bg-slate-800 text-slate-700 dark:text-slate-200 font-bold border border-slate-200 dark:border-slate-800 rounded-2xl shadow-sm hover:shadow hover:-translate-y-0.5 transition-all text-base cursor-pointer"
+                className="w-full sm:w-auto flex items-center justify-center gap-2 px-5 py-2.5 bg-[#171717] hover:bg-[#1f1f1f] text-white font-medium border border-[#2e2e2e] rounded-lg transition-all text-sm cursor-pointer hover:scale-[1.01]"
               >
-                <LayoutGrid className="w-5 h-5 text-slate-500 dark:text-slate-400" />
+                <LayoutGrid className="w-4 h-4 text-slate-400 stroke-[2]" />
                 Calculate CGPA
               </a>
             </div>

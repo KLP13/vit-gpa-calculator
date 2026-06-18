@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Mail, MessageSquare, Send, CheckCircle2, AlertCircle, Sparkles } from 'lucide-react';
+import CustomSelect from './CustomSelect';
 
 export default function ContactForm() {
   const [formData, setFormData] = useState({
@@ -158,18 +159,18 @@ export default function ContactForm() {
                 <label className="block text-xs font-semibold text-slate-400 dark:text-slate-500 uppercase tracking-wider mb-2">
                   Subject
                 </label>
-                <select
+                <CustomSelect
                   name="subject"
                   value={formData.subject}
                   onChange={handleChange}
-                  className="w-full bg-white dark:bg-slate-950 border border-slate-200 dark:border-slate-800 rounded-xl px-4 py-3 text-slate-700 dark:text-slate-200 focus:outline-none focus:ring-2 focus:ring-indigo-500/20 focus:border-indigo-600 transition-all text-sm font-medium appearance-none cursor-pointer"
-                  style={{ backgroundImage: `url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='%2364748b' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'><polyline points='6 9 12 15 18 9'></polyline></svg>")`, backgroundPosition: 'right 16px center', backgroundSize: '16px', backgroundRepeat: 'no-repeat' }}
-                >
-                  <option value="Feedback" className="dark:bg-slate-950">General Feedback</option>
-                  <option value="Bug Report" className="dark:bg-slate-950">Report a Calculation Bug</option>
-                  <option value="Feature Request" className="dark:bg-slate-950">Request a Feature</option>
-                  <option value="Collaboration" className="dark:bg-slate-950">Collaboration / Business</option>
-                </select>
+                  options={[
+                    { value: 'Feedback', label: 'General Feedback' },
+                    { value: 'Bug Report', label: 'Report a Calculation Bug' },
+                    { value: 'Feature Request', label: 'Request a Feature' },
+                    { value: 'Collaboration', label: 'Collaboration / Business' }
+                  ]}
+                  className="px-4 py-3 text-sm font-medium"
+                />
               </div>
 
               {/* Message Content */}
