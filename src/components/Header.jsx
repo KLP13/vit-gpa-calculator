@@ -1,34 +1,49 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { GraduationCap, Sun, Moon } from 'lucide-react';
 
 export default function Header({ darkMode, toggleDarkMode }) {
   const [scrolled, setScrolled] = useState(false);
   const [activeSection, setActiveSection] = useState('#gpa-section');
+  const isProgrammaticScroll = useRef(false);
+  const scrollTimeout = useRef(null);
 
   useEffect(() => {
+    let ticking = false;
+
     const handleScroll = () => {
       setScrolled(window.scrollY > 20);
 
-      // Scroll-aware section tracking
-      const sections = ['#gpa-section', '#cgpa-section', '#scale-section', '#faq-section', '#contact-section'];
-      const scrollPosition = window.scrollY + 220; // threshold offset
+      // Skip tracking updates during programmatically triggered smooth scrolls to avoid option-jumping lag
+      if (isProgrammaticScroll.current) return;
 
-      for (const section of sections) {
-        const el = document.querySelector(section);
-        if (el) {
-          const top = el.offsetTop;
-          const height = el.offsetHeight;
-          if (scrollPosition >= top && scrollPosition < top + height) {
-            setActiveSection(section);
-            break;
+      if (!ticking) {
+        window.requestAnimationFrame(() => {
+          const sections = ['#gpa-section', '#cgpa-section', '#scale-section', '#faq-section', '#contact-section'];
+          const scrollPosition = window.scrollY + 220; // threshold offset
+
+          for (const section of sections) {
+            const el = document.querySelector(section);
+            if (el) {
+              const top = el.offsetTop;
+              const height = el.offsetHeight;
+              if (scrollPosition >= top && scrollPosition < top + height) {
+                setActiveSection(section);
+                break;
+              }
+            }
           }
-        }
+          ticking = false;
+        });
+        ticking = true;
       }
     };
 
-    window.addEventListener('scroll', handleScroll);
+    window.addEventListener('scroll', handleScroll, { passive: true });
     handleScroll(); // Initial check
-    return () => window.removeEventListener('scroll', handleScroll);
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+      if (scrollTimeout.current) clearTimeout(scrollTimeout.current);
+    };
   }, []);
 
   const navLinks = [
@@ -41,10 +56,22 @@ export default function Header({ darkMode, toggleDarkMode }) {
 
   const handleScrollTo = (e, href) => {
     e.preventDefault();
+    
+    // Set programmatically scrolling flag
+    isProgrammaticScroll.current = true;
+    setActiveSection(href); // Instantly highlight clicked option
+
     const targetElement = document.querySelector(href);
     if (targetElement) {
       targetElement.scrollIntoView({ behavior: 'smooth' });
     }
+
+    if (scrollTimeout.current) clearTimeout(scrollTimeout.current);
+    
+    // Reset flag after standard smooth scroll duration finishes
+    scrollTimeout.current = setTimeout(() => {
+      isProgrammaticScroll.current = false;
+    }, 850);
   };
 
   return (
