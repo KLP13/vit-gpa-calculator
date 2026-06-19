@@ -85,7 +85,7 @@ export default function Header({ darkMode, toggleDarkMode }) {
           {/* Logo (Icon only on mobile, text on sm+) */}
           <a href="#" className="flex items-center gap-2 group shrink-0">
             <div className="w-9 h-9 rounded-xl bg-[#24b47e] flex items-center justify-center text-white shadow-sm group-hover:scale-105 transition-all">
-              <GraduationCap className="w-5 h-5 stroke-[2.5]" />
+              <GraduationCap className="w-[21px] h-[21px] stroke-[2.5]" />
             </div>
             <span className="font-display font-bold text-lg tracking-tight text-slate-900 dark:text-white hidden sm:inline-block">
               VIT <span className="text-[#24b47e]">GPA</span>

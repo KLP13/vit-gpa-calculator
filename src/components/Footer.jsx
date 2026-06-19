@@ -12,7 +12,7 @@ export default function Footer() {
           <div className="max-w-lg space-y-4">
             <a href="#" className="flex items-center gap-2 text-white group">
               <div className="w-9 h-9 rounded-xl bg-[#24b47e] flex items-center justify-center text-white shadow-sm group-hover:scale-105 transition-all">
-                <GraduationCap className="w-5 h-5 stroke-[2.5]" />
+                <GraduationCap className="w-[21px] h-[21px] stroke-[2.5]" />
               </div>
               <span className="font-display font-bold text-lg tracking-tight">
                 VIT <span className="text-[#24b47e]">GPA</span>
