@@ -10,12 +10,12 @@ export default function Footer() {
         <div className="mb-12 flex flex-col md:flex-row justify-between items-start gap-8">
           {/* Logo and About */}
           <div className="max-w-lg space-y-4">
-            <a href="#" className="flex items-center gap-2 text-white">
-              <div className="w-8 h-8 rounded-lg bg-indigo-500 flex items-center justify-center">
-                <GraduationCap className="w-4 h-4 text-slate-900" />
+            <a href="#" className="flex items-center gap-2 text-white group">
+              <div className="w-9 h-9 rounded-xl bg-[#24b47e] flex items-center justify-center text-white shadow-sm group-hover:scale-105 transition-all">
+                <GraduationCap className="w-5 h-5 stroke-[2.5]" />
               </div>
               <span className="font-display font-bold text-lg tracking-tight">
-                VIT <span className="text-indigo-400">GPA</span>
+                VIT <span className="text-[#24b47e]">GPA</span>
               </span>
             </a>
             <p className="text-sm text-slate-400 leading-relaxed">
