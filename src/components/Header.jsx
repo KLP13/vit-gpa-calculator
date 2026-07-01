@@ -92,8 +92,8 @@ export default function Header({ darkMode, toggleDarkMode }) {
             </span>
           </a>
 
-          {/* Centered Floating Pill Navigation (Linear style capsule) */}
-          <nav className="flex items-center bg-slate-100/70 dark:bg-[#121212]/90 border border-slate-200/50 dark:border-[#2a2a2b]/80 p-0.5 sm:p-1 rounded-full shadow-sm dark:shadow-xl mx-auto">
+          {/* Centered Floating Pill Navigation (Linear style capsule) - Fixed at bottom on mobile, inline header on desktop */}
+          <nav className="fixed bottom-6 left-1/2 -translate-x-1/2 z-50 sm:relative sm:bottom-auto sm:left-auto sm:translate-x-0 sm:z-auto flex items-center bg-slate-100/80 dark:bg-[#121212]/90 backdrop-blur-md border border-slate-200/50 dark:border-[#2a2a2b]/80 p-1 sm:p-1 rounded-full shadow-lg dark:shadow-2xl mx-auto transition-all duration-300">
             {navLinks.map((link) => {
               const isActive = activeSection === link.href;
               return (
@@ -101,7 +101,7 @@ export default function Header({ darkMode, toggleDarkMode }) {
                   key={link.name}
                   href={link.href}
                   onClick={(e) => handleScrollTo(e, link.href)}
-                  className={`px-2.5 sm:px-4 py-1.5 rounded-full text-[11px] sm:text-xs font-semibold transition-all duration-200 cursor-pointer whitespace-nowrap
+                  className={`px-3.5 sm:px-4 py-2 sm:py-1.5 rounded-full text-xs font-semibold transition-all duration-200 cursor-pointer whitespace-nowrap
                     ${isActive
                       ? 'bg-slate-900 text-white dark:bg-gradient-to-b dark:from-[#2e2e30] dark:to-[#18181b] border border-slate-950/10 dark:border-white/10 shadow-[0_1px_2px_rgba(0,0,0,0.05)] dark:shadow-[0_1px_2px_rgba(255,255,255,0.05),inset_0_1px_1px_rgba(255,255,255,0.1)] text-white'
                       : 'text-slate-500 dark:text-slate-400 hover:text-slate-900 dark:hover:text-slate-200'
